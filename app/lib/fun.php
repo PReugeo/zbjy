@@ -23,7 +23,7 @@ function createPassword($pwd){
  * @param string $charset
  * @return bool|mysqli
  */
-function mysqlInit($host,$user,$pwd,$dbName,$charset='utf-8'){
+function mysqlInit($host='139.129.240.196',$user='root',$pwd='root',$dbName='zbjy',$charset='utf-8'){
     $con = mysqli_connect($host,$user,$pwd);
     if(!$con){
         return false;

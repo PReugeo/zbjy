@@ -8,7 +8,7 @@
 //老师发布课程
 require 'lib/fun.php';
 if(!empty($_POST['phone'])){
-    //连接数据库做登陆处理
+    //连接数据库获取教师id
     $con = mysqlInit();
     $phone = $_POST['phone'];
     $sql = "SELECT `id` AS total FROM `zbjy_teacher` WHERE `phone` = '{$phone}'";
@@ -17,6 +17,18 @@ if(!empty($_POST['phone'])){
         $res = mysqli_fetch_assoc($obj);
         unset($sql,$obj);
         $teacherId = $res['total'];
+        $teacherSubject = mysqli_real_escape_string($con,$_POST['teacher_subject']);
+        $broadcastUrl = mysqli_real_escape_string($con,$_POST['broadcast_url']);
+        $classTime = mysqli_real_escape_string($con,$_POST['class_time']);
+        $res = mysqli_real_escape_string($con,$_POST['res']);
+        $suitPeople = mysqli_real_escape_string($con,$_POST['suit_people']);
+        $sql = "INSERT `teacher_subject`(`teacher_subject`,`broadcast_url`,`teacher_id`,`class_time`,`res`,`suit_people`) VALUES('{$teacherSubject}','{$broadcastUrl}','{$teacherId}','{$classTime}','{$res}','{$suitPeople}')";
+        $obj = mysqli_query($con,$sql);
+        if($obj){
+            echo '插入成功';
+        }else {
+            echo mysqli_error($con);
+        }
     }
 }else {
     echo '请求错误';

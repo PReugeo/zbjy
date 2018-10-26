@@ -5,7 +5,7 @@
  * Date: 2018/9/28
  * Time: 10:16
  */
-require 'lib/fun.php';
+include __DIR__.'/lib/fun.php';
 $con = mysqli_connect('139.129.240.196','root','root');
 if(!$con){
     return false;

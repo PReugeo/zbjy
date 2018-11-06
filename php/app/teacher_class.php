@@ -18,11 +18,11 @@ if(!empty($_POST['phone'])){
         unset($sql,$obj);
         $teacherId = $res['total'];
         $teacherSubject = mysqli_real_escape_string($con,$_POST['teacher_subject']);
-        $broadcastUrl = mysqli_real_escape_string($con,$_POST['broadcast_url']);
+        $broadcastUrl = urlMake();
         $classTime = mysqli_real_escape_string($con,$_POST['class_time']);
         $res = mysqli_real_escape_string($con,$_POST['res']);
         $suitPeople = mysqli_real_escape_string($con,$_POST['suit_people']);
-        $sql = "INSERT `teacher_subject`(`teacher_subject`,`broadcast_url`,`teacher_id`,`class_time`,`res`,`suit_people`) VALUES('{$teacherSubject}','{$broadcastUrl}','{$teacherId}','{$classTime}','{$res}','{$suitPeople}')";
+        $sql = "INSERT `teacher_subject`(`subject`,`class_url`,`teacher_id`,`class_time`,`intro`,`suit_people`) VALUES('{$teacherSubject}','{$broadcastUrl}','{$teacherId}','{$classTime}','{$res}','{$suitPeople}')";
         $obj = mysqli_query($con,$sql);
         if($obj){
             echo '插入成功';

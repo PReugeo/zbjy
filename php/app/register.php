@@ -16,6 +16,8 @@ mysqli_set_charset($con,'utf-8');
 if(!empty($_POST['phoneNumber'])){
     $phone = trim($_POST['phoneNumber']);
     $pwd = trim($_POST['pwd']);
+    //学生学历
+    $grade = trim($_POST['grade']);
     $sql = "SELECT COUNT(`id`) AS total FROM `zbjy_Student`  WHERE `phoneNumber` = '{$phone}'";
     $obj = mysqli_query($con,$sql);
     $result = mysqli_fetch_assoc($obj);
@@ -25,15 +27,10 @@ if(!empty($_POST['phoneNumber'])){
     }
     unset($obj,$sql,$result);
     $pwd = createPassword($pwd);
-    $sql = "INSERT `zbjy_Student`(`phoneNumber`,`pwd`,`create_time`) values('{$phone}','{$pwd}','{$_SERVER['REQUEST_TIME']}')";
+    $sql = "INSERT `zbjy_Student`(`phoneNumber`,`pwd`,`create_time`,`grade`) values('{$phone}','{$pwd}','{$_SERVER['REQUEST_TIME']}','{$grade}')";
     $obj = mysqli_query($con,$sql);
     if($obj){
-        $arr = [
-            'resCode' => '1',
-            'resMessage' => '登录成功',
-            'userType' => 'student',
-        ];
-        $json = json_encode($arr);
+        $json = json(1);
         echo $json;
     }else {
         mysqli_error($con);

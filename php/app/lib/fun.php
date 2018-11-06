@@ -57,3 +57,18 @@ function json($var){
         return $json;
     }
 }
+
+/**
+ * 创建老师直播地址
+ * @return string
+ */
+function urlMake(){
+    session_start();
+    if(!$_SESSION['num']){
+        $_SESSION['num'] = 1;
+    }else {
+        $_SESSION['num']++;
+    }
+    $url = "rtmp://119.23.24.229/vod/video".$_SESSION['num'].'-'.date('Y-m-d').'.flv';
+    return $url;
+}

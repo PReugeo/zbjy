@@ -31,10 +31,10 @@ if(!empty($_POST['phoneNumber'])){
             $classWeek = $res[$i]['class_week'];
             $intro = $res[$i]['intro'];
             $suit_people = $res[$i]['suit_people'];
-            $img_url = $res[$i]['imt_url'];
+            $img_url = $res[$i]['img_url'];
             $updated = $res[$i]['section_number'];
+            $val .= "('".$updated."','".$img_url."','".$teacher_id."','".$suit_people."','".$intro."','".$id."','".$_SERVER['REQUEST_TIME']."','".$subject."','".$classTime."','".$url."','".$classWeek."'),";
             $i++;
-            $val .= "('".{$updated}."',".{$img_url}.",".{$teacher_id}.",".{$suit_people}.",".{$intro}.",".{$user_id}.",".{$_SERVER['REQUEST_TIME']}.",".{$subject}.",".{$classTime}.",".{$url}.",".{$classWeek}.",)";
         }
         $val = rtrim($val,',');
         $sql = "INSERT `zbjy_student_subject`(`updated`,`img_url`,`teacher_id`,`suit_people`,`intro`,`user_id`,`create_time`,`subject`,`class_time`,`class_url`,`class_week`) values $val";

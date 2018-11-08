@@ -63,12 +63,6 @@ function json($var){
  * @return string
  */
 function urlMake(){
-    session_start();
-    if(!$_SESSION['num']){
-        $_SESSION['num'] = 1;
-    }else {
-        $_SESSION['num']++;
-    }
-    $url = "rtmp://119.23.24.229/vod/video".$_SESSION['num'].'-'.date('Y-m-d').'.flv';
+    $url = "rtmp://119.23.24.229/vod/video".$_SERVER['REQUEST_TIME'].'-'.date('Y-m-d').'.flv';
     return $url;
 }

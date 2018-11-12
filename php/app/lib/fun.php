@@ -34,31 +34,6 @@ function mysqlInit($host='139.129.240.196',$user='root',$pwd='root',$dbName='zbj
 }
 
 /**
- * 登录提示函数
- * @param $var
- * @return false|string
- */
-function json($var){
-    if($var !== 0){
-        $arr = [
-            'resCode' => '1',
-            'resMessage' => '登录成功',
-            'userType' => 'student',
-        ];
-        $json = json_encode($arr);
-        return $json;
-    }else {
-        $arr = [
-            'resCode' => '0',
-            'resMessage' => '登录失败',
-            'userType' => 'student',
-        ];
-        $json = json_encode($arr);
-        return $json;
-    }
-}
-
-/**
  * 创建老师直播地址
  * @return string
  */

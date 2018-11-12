@@ -19,9 +19,28 @@ if(!empty($_POST['phoneNumber'])){
         //判断密码是否正确
         if(is_array($res) && !empty($res)){
             if(createPassword($pwd) === $res['pwd']){
-                echo json(1);
+                $arr = [
+                    'resCode' => '1',
+                    'resMessage' => array(
+                        'userName' => $res['userName'],
+                        'school' => $res['school'],
+                        'profession' => $res['profession'],
+                        'email' => $res['email'],
+                        'grade' => $res['grade'],
+                        'userImageUrl' => $res['userImageUrl'],
+                    ),
+                    'userType' => 'student'
+                ];
+                $json = json_encode($arr);
+                echo $json;
             }else {
-                echo json(0);
+                $arr = [
+                    'resCode' => '0',
+                    'resMessage' => '登陆失败',
+                    'userType' => 'student'
+                ];
+                $json = json_encode($arr);
+                echo $json;;
             }
         }
     }else {
@@ -35,7 +54,13 @@ if(!empty($_POST['phoneNumber'])){
                 if(createPassword($pwd) === $res['pwd']){
                     $arr = [
                         'resCode' => '1',
-                        'resMessage' => '登陆成功',
+                        'resMessage' => array(
+                            'name' => $res['name'],
+                            'school' => $res['school'],
+                            'profession' => $res['profession'],
+                            'title' => $res['title'],
+                            'email' => $res['email'],
+                        ),
                         'userType' => 'teacher'
                     ];
                     $json = json_encode($arr);

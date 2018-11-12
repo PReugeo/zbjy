@@ -17,6 +17,7 @@ if($obj){
     $sql = "SELECT * FROM `student_comment` WHERE `teacher_id` = '{$id}'";
     $obj = mysqli_query($con,$sql);
     if($obj){
+        $result = null;
         while($res = mysqli_fetch_assoc($obj)){
             $result[] = $res;
         }

@@ -17,7 +17,7 @@ if(!empty($_POST['phoneNumber'])){
     $phone = trim($_POST['phoneNumber']);
     $pwd = trim($_POST['pwd']);
     //学生学历
-    $grade = trim($_POST['grade']);
+    $grade = $_POST['grade'];
     $sql = "SELECT COUNT(`id`) AS total FROM `zbjy_Student`  WHERE `phoneNumber` = '{$phone}'";
     $obj = mysqli_query($con,$sql);
     $result = mysqli_fetch_assoc($obj);
@@ -30,7 +30,19 @@ if(!empty($_POST['phoneNumber'])){
     $sql = "INSERT `zbjy_Student`(`phoneNumber`,`pwd`,`create_time`,`grade`) values('{$phone}','{$pwd}','{$_SERVER['REQUEST_TIME']}','{$grade}')";
     $obj = mysqli_query($con,$sql);
     if($obj){
-        $json = json(1);
+        $arr = [
+            'resCode' => '1',
+            'userMessage' => array(
+                'name' => '',
+                'school' => '',
+                'profession' => '',
+                'title' => '',
+                'email' => '',
+                'grade' => $grade,
+            ),
+            'userType' => 'student',
+        ];
+        $json = json_encode($arr);
         echo $json;
     }else {
         mysqli_error($con);

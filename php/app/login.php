@@ -54,7 +54,7 @@ if(!empty($_POST['phoneNumber'])){
                 if(createPassword($pwd) === $res['pwd']){
                     $arr = [
                         'resCode' => '1',
-                        'resMessage' => array(
+                        'userMessage' => array(
                             'name' => $res['name'],
                             'school' => $res['school'],
                             'profession' => $res['profession'],

@@ -7,10 +7,10 @@
  */
 //老师发布课程
 require 'lib/fun.php';
-if(!empty($_POST['phone'])){
+if(!empty($_POST['phoneNumber'])){
     //连接数据库获取教师id
     $con = mysqlInit();
-    $phone = $_POST['phone'];
+    $phone = $_POST['phoneNumber'];
     $sql = "SELECT `id` AS total FROM `zbjy_teacher` WHERE `phone` = '{$phone}'";
     $obj = mysqli_query($con,$sql);
     if($obj){

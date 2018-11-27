@@ -55,7 +55,7 @@ if(!empty($_POST['phoneNumber'])){
                     $arr = [
                         'resCode' => '1',
                         'userMessage' => array(
-                            'name' => $res['name'],
+                            'userName' => $res['userName'],
                             'school' => $res['school'],
                             'profession' => $res['profession'],
                             'title' => $res['title'],

@@ -23,6 +23,7 @@ if(!empty($_POST['phoneNumber'])) {
         $sql = "SELECT * FROM `zbjy_student_subject` WHERE `user_id` = '{$id}'";
         $class = 0;//计数课时数
         $obj = mysqli_query($con,$sql);
+        $arr = null;
         while($row = mysqli_fetch_assoc($obj)){
             $arr[] = $row;
             $class++;

@@ -17,7 +17,7 @@ if($obj){
     $res = mysqli_fetch_assoc($obj);
     $id = $res['id'];
     unset($sql,$obj,$res);
-    $sql = "SELECT * FROM `teacher_subject` WHERE `teacher_id` = '{$id}' and `section_number` = 1";
+    $sql = "SELECT * FROM `teacher_subject` WHERE `teacher_id` = '{$id}' and `section_number` = 1 and `is_del` = 1";
     $obj = mysqli_query($con,$sql);
     if($obj){
         $result = null;

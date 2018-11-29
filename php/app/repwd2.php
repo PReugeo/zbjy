@@ -8,7 +8,7 @@
 require "lib/fun.php";
 
 if(!empty($_POST['phoneNumber'])){
-    $con = mysqlInit('139.129.240.196','root','root','zbjy');
+    $con = mysqlInit();
 
     $phone = trim($_POST['phoneNumber']);
 

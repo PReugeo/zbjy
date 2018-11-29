@@ -41,3 +41,25 @@ function urlMake(){
     $url = "rtmp://119.23.24.229/vod/video".$_SERVER['REQUEST_TIME'].'-'.date('Y-m-d').'.flv';
     return $url;
 }
+/**
+ * 登录提示函数
+ * @param $var
+ * @return false|string
+ */
+function json($var){
+    if($var !== 0){
+        $arr = [
+            'resCode' => '1',
+            'resMessage' => '重置成功',
+        ];
+        $json = json_encode($arr);
+        return $json;
+    }else {
+        $arr = [
+            'resCode' => '0',
+            'resMessage' => '重置失败',
+        ];
+        $json = json_encode($arr);
+        return $json;
+    }
+}

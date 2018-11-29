@@ -6,12 +6,10 @@
  * Time: 10:16
  */
 include __DIR__.'/lib/fun.php';
-$con = mysqli_connect('139.129.240.196','root','root');
+$con = mysqlInit();
 if(!$con){
     return false;
 }
-mysqli_select_db($con,'zbjy');
-mysqli_set_charset($con,'utf-8');
 
 if(!empty($_POST['phoneNumber'])){
     $phone = trim($_POST['phoneNumber']);

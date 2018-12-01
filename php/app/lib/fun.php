@@ -38,7 +38,15 @@ function mysqlInit($host='139.129.240.196',$user='root',$pwd='root',$dbName='zbj
  * @return string
  */
 function urlMake(){
-    $url = "rtmp://119.23.24.229/vod/video".$_SERVER['REQUEST_TIME'].'-'.date('Y-m-d').'.flv';
+    $url = "rtmp://119.23.24.229/play/video".$_SERVER['REQUEST_TIME'].'-'.date('Y-m-d');
+    return $url;
+}
+/**
+ * 创建老师录播地址
+ * @return string
+ */
+function playUrlMake(){
+    $url = "rtmp://119.23.24.229/vod/video".$_SERVER['REQUEST_TIME'].'-'.date('Y-m-d');
     return $url;
 }
 /**

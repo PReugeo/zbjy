@@ -45,7 +45,7 @@ if(!empty($_POST['phoneNumber'])){
         }
     }else {
         unset($sql,$obj,$res);
-        $sql = "SELECT * FROM `zbjy_teacher` WHERE `phone` = '{$phone}' LIMIT 1";
+        $sql = "SELECT * FROM `zbjy_teacher` WHERE `phoneNumber` = '{$phone}' LIMIT 1";
         $obj = mysqli_query($con,$sql);
         if($obj){
             $res = mysqli_fetch_assoc($obj);

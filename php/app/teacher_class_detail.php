@@ -1,5 +1,6 @@
 <?php
 /**
+ * 查询具体小节老师课程
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2018/11/22

@@ -10,7 +10,7 @@ require __DIR__.'/lib/fun.php';
 $con = mysqlInit();
 $phone = trim($_POST['phoneNumber']);
 //使用手机号查询用户
-$sql = "SELECT * FROM `zbjy_teacher` WHERE `phone` = '{$phone}' LIMIT 1";
+$sql = "SELECT * FROM `zbjy_teacher` WHERE `phoneNumber` = '{$phone}' LIMIT 1";
 
 $obj = mysqli_query($con, $sql);
 if($obj){

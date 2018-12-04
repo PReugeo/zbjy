@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        form>input{
+            display: block;
+            width: 40%;
+            height: 50px;
+            margin: 10px;
+        }
+        button{
+            border: none;
+            width: 20%;
+            height: 50px;
+            background-color: rgba(28, 42, 182, 0.5);
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<form action="student_class.php" method="post">
+    <!--<input type="text" name="id" id="id" placeholder="教师手机号">-->
+    <input type="text" name="id" id="subject" placeholder="所选科目">
+    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="学生手机号">
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

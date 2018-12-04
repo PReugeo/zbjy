@@ -20,7 +20,7 @@ if(!empty($_POST['phoneNumber'])) {
         $id = $res['id'];
         //清除变量
         unset($sql,$obj,$res);
-        $sql = "SELECT * FROM `zbjy_student_subject` WHERE `user_id` = '{$id}'";
+        $sql = "SELECT * FROM `zbjy_student_subject_index` WHERE `student_id` = '{$id}'";
         $class = 0;//计数课时数
         $obj = mysqli_query($con,$sql);
         $arr = null;

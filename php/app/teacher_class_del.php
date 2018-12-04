@@ -14,8 +14,11 @@ if(!empty($_POST['id'])){
     $result = mysqli_fetch_assoc($obj);
 
     $sql = "UPDATE `teacher_subject` SET `is_del` = 0 WHERE `subject` = '{$result['subject']}' AND `teacher_id` = '{$result['teacher_id']}'";
+    //更新
+    $sql2 = "UPDATE `zbjy_student_subject_index` SET `is_del` = 0 WHERE `subject` = '{$result['subject']}' AND `class_id` = '{$id}'";
     $obj = mysqli_query($con, $sql);
-    if($obj){
+    $obj2 = mysqli_query($con, $sql2);
+    if($obj && $obj2){
         echo "删除成功";
     }
 }

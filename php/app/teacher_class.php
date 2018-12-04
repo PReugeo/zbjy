@@ -19,8 +19,9 @@ if(!empty($_POST['phoneNumber'])){
         $teacherId = $res['total'];
         $teacherSubject = mysqli_real_escape_string($con,$_POST['subject']);
         $broadcastUrl = urlMake();
+        $title = $_POST['title'];
         $classTime = mysqli_real_escape_string($con,$_POST['class_time']);
-        $res = mysqli_real_escape_string($con,$_POST['intro']);
+        $intro = $_POST['intro'];
         $suitPeople = mysqli_real_escape_string($con,$_POST['suit_people']);
         $sectionNumber = 0;
         $playUrl = playUrlMake();
@@ -33,7 +34,7 @@ if(!empty($_POST['phoneNumber'])){
             }
         }
         $sectionNumber ++;
-        $sql = "INSERT `teacher_subject`(`subject`,`class_url`,`teacher_id`,`class_time`,`intro`,`suit_people`,`is_del`,`section_number`,`play_url`,`class_week`) VALUES('{$teacherSubject}','{$broadcastUrl}','{$teacherId}','{$classTime}','{$res}','{$suitPeople}',0, '{$sectionNumber}','{$playUrl}','{$classWeek}')";
+        $sql = "INSERT `teacher_subject`(`subject`,`class_url`,`teacher_id`,`class_time`,`intro`,`suit_people`,`is_del`,`section_number`,`play_url`,`class_week`,`title`) VALUES('{$teacherSubject}','{$broadcastUrl}','{$teacherId}','{$classTime}','{$intro}','{$suitPeople}',1, '{$sectionNumber}','{$playUrl}','{$classWeek}','{$title}')";
         $obj = mysqli_query($con,$sql);
         if($obj){
             echo '插入成功';

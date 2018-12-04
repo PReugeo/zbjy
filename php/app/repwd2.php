@@ -23,7 +23,7 @@ if(!empty($_POST['phoneNumber'])){
     if($obj){
         unset($sql,$obj);
         //更新数据库密码
-        $sql = "UPDATE `zbjy_student` SET `pwd` = '{$pwd}' WHERE `phoneNumber` = '{$phone}'";
+        $sql = "UPDATE `zbjy_Student` SET `pwd` = '{$pwd}' WHERE `phoneNumber` = '{$phone}'";
         $obj = mysqli_query($con,$sql);
         if($obj){
             echo json(1);
